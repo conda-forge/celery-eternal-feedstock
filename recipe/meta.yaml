@@ -1,6 +1,6 @@
 {% set name = "celery-eternal" %}
-{% set version = "0.0.3" %}
-{% set sha256 = "37dc9f19fc947ea5eb93f3388cdab667b492e94ffa7fa85b2c1d3612579e4672" %}
+{% set version = "0.1.0" %}
+{% set sha256 = "ad5dd96153311067d46c4b0efc9750873130356823e8be67f387154ddcfd9573" %}
 
 package:
   name: "{{ name|lower }}"
