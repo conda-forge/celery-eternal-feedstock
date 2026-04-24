@@ -7,21 +7,21 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
 
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - setuptools >=30.3.0
   run:
-    - python
+    - python >={{ python_min }}
     - celery >=4.1.0
     - celery-singleton >=0.1.1
     - redis-py >=2.10.5
@@ -31,6 +31,7 @@ test:
     - celery_eternal
   requires:
     - pytest
+    - python {{ python_min }}
   commands:
     - python -m pytest --pyargs celery_eternal
 
